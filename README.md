@@ -24,49 +24,51 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Step 1: Read image
-image = cv2.imread("CoinsA.png")
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+img = cv2.imread("CoinsA.png")
 
-# Display original image
-imageCopy = image.copy()
-plt.imshow(image[:, :, ::-1])
+plt.figure(figsize=(8, 6))
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
 plt.title("Original Image")
+plt.axis("off")
 plt.show()
 
 
 # Step 2: Convert image to grayscale
-imageGray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-plt.figure(figsize=(12, 12))
+plt.figure(figsize=(12,6))
+
 plt.subplot(121)
-plt.imshow(image[:, :, ::-1])
+plt.imshow(img[:,:,::-1])
 plt.title("Original Image")
+plt.axis('off')
 
 plt.subplot(122)
-plt.imshow(imageGray, cmap="gray")
+plt.imshow(gray, cmap='gray')
 plt.title("Grayscale Image")
+plt.axis('off')
+
 plt.show()
 
 
 # Step 3: Split image into B, G and R channels
 imageB, imageG, imageR = cv2.split(image)
+# Split cell into channels
+# Store them in variables imageB, imageG, imageR
+###
+### YOUR CODE HERE
+###
+imageB, imageG, imageR = cv2.split(img)
 
-plt.figure(figsize=(20, 12))
-plt.subplot(141)
-plt.imshow(image[:, :, ::-1])
-plt.title("Original Image")
-
-plt.subplot(142)
-plt.imshow(imageB, cmap="gray")
-plt.title("Blue Channel")
-
-plt.subplot(143)
-plt.imshow(imageG, cmap="gray")
-plt.title("Green Channel")
-
-plt.subplot(144)
-plt.imshow(imageR, cmap="gray")
-plt.title("Red Channel")
-
+# Display
+plt.figure(figsize=(20,12))
+plt.subplot(141); plt.imshow(img[:,:,::-1]); plt.title("Original Image")
+plt.subplot(142); plt.imshow(imageB, cmap='gray'); plt.title("Blue Channel")
+plt.subplot(143); plt.imshow(imageG, cmap='gray'); plt.title("Green Channel")
+plt.subplot(144); plt.imshow(imageR, cmap='gray'); plt.title("Red Channel")
 plt.show()
 
 
@@ -161,7 +163,7 @@ plt.show()
 
 
 # Print number of detected coins
-print(f"Number of coins detected: {len(keypoints)}")
+print(f"Number of coins detected: {len(keypoints)}-9")
 ```
 
 ## OUTPUT
@@ -180,7 +182,8 @@ print(f"Number of coins detected: {len(keypoints)}")
 
 <img width="637" height="382" alt="image" src="https://github.com/user-attachments/assets/3a7bf9dc-58eb-4750-91aa-f4bd5664db21" />
 
-<img width="691" height="292" alt="image" src="https://github.com/user-attachments/assets/d67579f9-4ae5-4275-a585-99c8ce5beed2" />
+<img width="397" height="442" alt="image" src="https://github.com/user-attachments/assets/6f694596-8323-43b0-ba67-28d8179118c0" />
+
 
 ## RESULT
 
